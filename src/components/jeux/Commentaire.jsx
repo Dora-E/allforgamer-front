@@ -35,7 +35,11 @@ export default class Commentaire extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
+        <form
+          onSubmit={this.handleSubmit}
+          onChange={this.handleChange}
+          className="comments"
+        >
           <label>
             Commentaires:
             <textarea value={this.state.value} name="message" />

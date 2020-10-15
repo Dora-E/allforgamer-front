@@ -94,6 +94,16 @@ h2 {
   text-decoration: none;
   color: black;
 }
+.comments{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.poste{
+  display: fixed;
+
+}
 
 /* images des jeux en grid responsive */
 .container-games {

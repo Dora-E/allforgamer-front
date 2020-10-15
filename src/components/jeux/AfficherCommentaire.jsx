@@ -16,7 +16,7 @@ export default class AfficherCommentaire extends Component {
 
   render() {
     return (
-      <div>
+      <div className="poste">
         {this.props.commentaires.map((commentaire, i) => (
           <ul key={i}>
             Date : <li>{moment(commentaire.date).format("DD MMM YYYY")}</li>
