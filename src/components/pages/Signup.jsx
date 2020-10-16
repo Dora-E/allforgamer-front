@@ -55,6 +55,7 @@ export default class Signup extends Component {
 
   handleInput = (evt) => this.setState({ [evt.target.name]: evt.target.value });
   handleSubmit = async (evt) => {
+    console.log("hello fofona");
     evt.preventDefault();
 
     const { first_name, last_name, email, password } = this.state;
@@ -145,9 +146,9 @@ export default class Signup extends Component {
             className="is-hidden"
             ref={this.fileInput} // la référence créé dans la classe est associée à cet input file
           />
-          <Link to="/login">
-            <button className="btn">ok</button>
-          </Link>
+
+          <button className="btn">ok</button>
+
           <hr />
           <p>
             Already have an account ? please{" "}
