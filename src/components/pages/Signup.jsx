@@ -71,13 +71,7 @@ export default class Signup extends Component {
     fd.append("avatar", avatar);
 
     if (avatar) fd.append("avatar", avatar);
-    await handler.post("/signup", {
-      first_name,
-      last_name,
-      email,
-      password,
-      avatar,
-    });
+
     this.context.signup(this.state, () => {
       this.props.history.push("/signin");
     });
