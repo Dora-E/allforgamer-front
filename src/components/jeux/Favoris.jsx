@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import AuthContext from "../auth/AuthContext";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { Component } from 'react';
+import AuthContext from '../auth/AuthContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import { apiHandler } from "../../handler/handler";
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { apiHandler } from '../../handler/handler';
 //\faHeart \faThumbsDow \faThumbsUp
 const handler = apiHandler();
 
@@ -18,11 +18,11 @@ export default class Favoris extends Component {
   }
   getFav = async () => {};
   handleClick = async () => {
-    // this.setState((state) => ({
-    //   isToggleOn: !state.isToggleOn,
-    // }));
+    this.setState((state) => ({
+      isToggleOn: !state.isToggleOn,
+    }));
     try {
-      const fav = await handler.get("/users/:id/favoris");
+      const fav = await handler.get('/users/favoris');
       this.setState({ favs: fav.data });
     } catch (err) {
       console.error(err);

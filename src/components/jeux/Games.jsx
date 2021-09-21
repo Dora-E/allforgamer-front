@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import Commentaire from "./Commentaire";
-import moment from "moment";
-import Favoris from "./Favoris";
-import ReactPlayer from "react-player";
-import { apiHandler } from "../../handler/handler";
-import AfficherCommentaire from "./AfficherCommentaire";
+import React, { Component } from 'react';
+import Commentaire from './Commentaire';
+import moment from 'moment';
+import Favoris from './Favoris';
+import ReactPlayer from 'react-player';
+import { apiHandler } from '../../handler/handler';
+import AfficherCommentaire from './AfficherCommentaire';
 
 const handler = apiHandler();
 
@@ -21,7 +21,7 @@ export default class Games extends Component {
     console.log(this.props.match.params.id);
     try {
       // recup les jeu dans le handler qui a comme url celle du back end http://localhost:8000
-      const game = await handler.get("/games/" + this.props.match.params.id);
+      const game = await handler.get('/games/' + this.props.match.params.id);
       // const commentaires = await handler.get("/commentaires/");
       this.getCommentaires();
       // console.log(game);
@@ -32,8 +32,8 @@ export default class Games extends Component {
   }
   // function qui recupere les commentaire poste et les filtre en fonction de l'id du jeu
   getCommentaires = async () => {
-    const commentaires = await handler.get("/commentaires");
-    console.log("COMMENTAIRES GAMES : ", commentaires);
+    const commentaires = await handler.get('/commentaires');
+    console.log('COMMENTAIRES GAMES : ', commentaires);
     //filtre les data qu model commentaire pour les afficher  from to et message
     const filteredComm = commentaires.data.filter((commentaire) => {
       //si le id du to du commentaire est = a l'id du jeu en question affcihe le commentaire
@@ -55,11 +55,8 @@ export default class Games extends Component {
           <h2 className="title1"> {g.name} </h2>
 
           <p className="desc">{g.description}</p>
+          <br />
           <ul className="games-infos">
-            <li> Editeur {g.creator}</li>
-            {/* le format de la date viens de moment .js jour mois année  */}
-            <li> Date de sortie :{moment(g.date).format("DD MMM YYYY")}</li>
-            <li> Categorie :{g.categories}</li>
             <div className="video">
               <ReactPlayer
                 url={g.video}
@@ -70,6 +67,12 @@ export default class Games extends Component {
                 height="540px"
               />
             </div>
+            <br />
+            <li> Editeur {g.creator}</li>
+            {/* le format de la date viens de moment .js jour mois année  */}
+            <li> Date de sortie :{moment(g.date).format('DD MMM YYYY')}</li>
+            <li> Categorie :{g.categories}</li>
+            <br />
             <li>
               <Favoris />
             </li>

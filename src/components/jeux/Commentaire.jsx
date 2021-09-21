@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { apiHandler } from "../../handler/handler";
-import AuthContext from "../auth/AuthContext";
+import React, { Component } from 'react';
+import { apiHandler } from '../../handler/handler';
+import AuthContext from '../auth/AuthContext';
 
 const handler = apiHandler();
 export default class Commentaire extends Component {
@@ -23,7 +23,7 @@ export default class Commentaire extends Component {
       from: this.context.currentUser._id,
       message: this.state.message,
     };
-    await handler.post("/commentaires/", commentaire);
+    await handler.post('/commentaires/', commentaire);
     this.props.getCommentaires();
     //getComentaire est une fonction callbakc definie dans le composant games qui recupere les comentaire poster sur l'id du jeu en question
   };
@@ -42,7 +42,11 @@ export default class Commentaire extends Component {
         >
           <label>
             Commentaires:
-            <textarea value={this.state.value} name="message" />
+            <textarea
+              value={this.state.value}
+              name="message"
+              className="texte"
+            />
           </label>
           <input type="submit" value="Envoyer" />
         </form>

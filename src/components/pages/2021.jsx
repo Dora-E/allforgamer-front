@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import moment from "moment";
-import { Link } from "react-router-dom";
-import { apiHandler } from "../../handler/handler";
+import moment from 'moment';
+import { Link } from 'react-router-dom';
+import { apiHandler } from '../../handler/handler';
 const handler = apiHandler();
 // import { useLocation } from "react-router-dom";
 export default class Annee1 extends Component {
@@ -22,10 +22,10 @@ export default class Annee1 extends Component {
     //   "novembre",
     //   "decembre",
     // ],
-    year: [2020, 2021],
+    year: [2022, 2021],
   };
   async componentDidMount() {
-    const games = await handler.get("/games");
+    const games = await handler.get('/games');
     this.setState({ games: games.data }, this.getGameByYearAndMonth);
   }
 
@@ -36,9 +36,9 @@ export default class Annee1 extends Component {
     if (games.length !== 0) {
       //envoie données filtrer par année dans se nouveau tableau
       tab = games.filter((game, i) => {
-        let year = moment(game.date).format("YYYY"); //recupere lanne de la date du jeu
+        let year = moment(game.date).format('YYYY'); //recupere lanne de la date du jeu
         // let month = moment(game.date).format("MM"); //recup le mois de la date du jeu
-        if (year === "2021") return game; // return en fonction de la date
+        if (year === '2021') return game; // return en fonction de la date
       });
       // nouvelle données de filteredgames est le tableau créés au dessus càd les jeux filtrer par année ici 2021
       this.setState({ filteredGames: tab });

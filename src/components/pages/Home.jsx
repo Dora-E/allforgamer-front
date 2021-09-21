@@ -1,47 +1,44 @@
-import React from "react";
-import AwesomeSlider from "react-awesome-slider";
-import "react-awesome-slider/dist/styles.css";
-import image from "../../assets/img/spiderman.png";
+import React from 'react';
+import AwesomeSlider from 'react-awesome-slider';
+import 'react-awesome-slider/dist/styles.css';
 
-import image2 from "../../assets/img/Watch-Dogs-Legion-oj8f22e8vh71wpmjw6dw9w5ivriilk45k56z6lqkbi.jpg";
-import image3 from "../../assets/img/1594533802-maxresdefault-11-1594552747.jpg";
-import image4 from "../../assets/img/demon_s_souls_asie_2542.jpg";
-import image5 from "../../assets/img/little devil inside.jpg";
-import image1 from "../../assets/img/assassins-creed-valhalla-key-art-e1588261446136.jpg";
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 
 export default function Home() {
   return (
     <div className="container">
       <h3 className="home">
-        All For Gamers. fait par les joueurs et pour les joueurs. Site
+        All For Gamers. Fait par les joueurs et pour les joueurs. Site
         d’informations sur les jeux a venirs. Les dates prevues, les premieres
         images, bandes annonces. Enjoy Games!
       </h3>
       <NavLink
         exact
-        to="/2020"
-        style={{ textDecoration: "none", color: "black" }}
+        to="/2021"
+        style={{ textDecoration: 'none', color: 'black' }}
       >
-        <h2>2020</h2>
+        <br />
+        <h2>2021</h2>
       </NavLink>
       <AwesomeSlider>
-        <div data-src={image} />
-        <div data-src={image1} />
-        <div data-src={image2} />
+        <div data-src="https://res.cloudinary.com/dnhyvjk7j/image/upload/v1631111387/games/LosGhSqN4vM7T4n6ux4dvY_srv5l4.jpg" />
+        <div data-src="https://res.cloudinary.com/dnhyvjk7j/image/upload/v1631100949/games/EGS_KenaBridgeofSpirits_EmberLab_S5-1920x1080-450356496c568d85ecc7319a202b99b7_hjbx0c.jpg" />
+        <div data-src="https://res.cloudinary.com/dnhyvjk7j/image/upload/v1631101171/games/H2x1_NSwitchDS_HollowKnightSilksong_pqajv8.jpg" />
       </AwesomeSlider>
 
       <NavLink
         exact
-        to="/2021"
-        style={{ textDecoration: "none", color: "black" }}
+        to="/2022"
+        style={{ textDecoration: 'none', color: 'black' }}
       >
-        <h2>2021</h2>
+        <br />
+        <br />
+        <h2>2022</h2>
       </NavLink>
       <AwesomeSlider>
-        <div data-src={image3} />
-        <div data-src={image4} />
-        <div data-src={image5} />
+        <div data-src="https://res.cloudinary.com/dnhyvjk7j/image/upload/v1631100262/games/elden-ring-toutes-les-infos-date-de-sortie-trailer-gameplay_zp2ahv.jpg" />
+        <div data-src="https://res.cloudinary.com/dnhyvjk7j/image/upload/v1631102486/games/1560429221-4552-jaquette-avant_pjyxlt.jpg" />
+        <div data-src="https://res.cloudinary.com/dnhyvjk7j/image/upload/v1631109950/games/1530630713-8513-jaquette-avant_r5ipur.jpg" />
       </AwesomeSlider>
 
       {/* <NavLink

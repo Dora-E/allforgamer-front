@@ -1,17 +1,17 @@
-import React, { Component } from "react";
-import AuthContext from "../auth/AuthContext";
+import React, { Component } from 'react';
+import AuthContext from '../auth/AuthContext';
 
-import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
-import { apiHandler } from "../../handler/handler";
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { apiHandler } from '../../handler/handler';
 const handler = apiHandler();
 export default class Signup extends Component {
   state = {
-    first_name: "Marcel",
-    last_name: "dupont",
-    email: "marcel.dupont@gmail.com",
-    password: "123456",
+    first_name: 'Marcel',
+    last_name: 'dupont',
+    email: 'marcel.dupont@gmail.com',
+    password: '123456',
     // avatar: null,
     // selectedFile: null,
   };
@@ -38,42 +38,42 @@ export default class Signup extends Component {
   submit = () => {
     var fd = new FormData();
 
-    fd.append("file", this.state.selectedFile);
+    fd.append('file', this.state.selectedFile);
 
     var request = new XMLHttpRequest();
     // callback qui est appelé dans le context et change le state pour le slected file
     request.onreadystatechange = function () {
       if (this.readyState === 4 && this.status === 200) {
-        alert("Uploaded!");
+        alert('Uploaded!');
       }
     };
     //nstancie une nouvelle requête ou réinitialise un déjà existante.
-    request.open("POST", "", true);
+    request.open('POST', '', true);
     // envoie cette nouvelle requete qans la bdd  grace au formdata
     request.send(fd);
   };
 
   handleInput = (evt) => this.setState({ [evt.target.name]: evt.target.value });
   handleSubmit = async (evt) => {
-    console.log("hello fofona");
+    console.log('hello fofona');
     evt.preventDefault();
 
     const { first_name, last_name, email, password } = this.state;
-    console.log(this.state);
+    // console.log(this.state);
     const avatar = this.fileInput.current.files[0]; // on récupère la valeur de l'input file référencé
     const fd = new FormData(); // formData est obligatoire pour envoyer des files (ex: avatar) vers le backend
     // check la doc : https://developer.mozilla.org/fr/docs/Web/API/FormData
 
-    fd.append("first_name", first_name); // on ajoute des clé valeurs dans l'objet fd
-    fd.append("last_name", last_name);
-    fd.append("email", email);
-    fd.append("password", password);
-    fd.append("avatar", avatar);
+    fd.append('first_name', first_name); // on ajoute des clé valeurs dans l'objet fd
+    fd.append('last_name', last_name);
+    fd.append('email', email);
+    fd.append('password', password);
+    fd.append('avatar', avatar);
 
-    if (avatar) fd.append("avatar", avatar);
+    if (avatar) fd.append('avatar', avatar);
 
     this.context.signup(this.state, () => {
-      this.props.history.push("/signin");
+      this.props.history.push('/signin');
     });
   };
 
@@ -145,7 +145,7 @@ export default class Signup extends Component {
 
           <hr />
           <p>
-            Already have an account ? please{" "}
+            Already have an account ? please{' '}
             <Link className="link" to="/signin">
               sign in
             </Link>
